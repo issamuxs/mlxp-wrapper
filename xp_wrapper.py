@@ -41,6 +41,7 @@ class xp_wrapper:
                 self.model_info['model_type'] = type(self.model).__name__
                 self.model_info['version'] = get_next_version(model_name)
                 self.model = LogisticRegression(max_iter=1000)
+                print(f"Training model {model_name}...")
                 self.model.fit(X, y)
                 self.model_info['accuracy'] = self.model.score(X_test, y_test)
 
