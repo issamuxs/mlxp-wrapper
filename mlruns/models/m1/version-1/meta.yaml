@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728674042236
+current_stage: None
+description: null
+last_updated_timestamp: 1728674042236
+name: m1
+run_id: c006ef455af34478af0cf58e731bb8f7
+run_link: null
+source: file:///Users/Issam/Library/CloudStorage/GoogleDrive-issam.ibnouhsein%40gmail.com/Mon%20Drive/coding/ml-components-demo/mlxp-wrapper/mlruns/150382600818973879/c006ef455af34478af0cf58e731bb8f7/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///Users/Issam/Library/CloudStorage/GoogleDrive-issam.ibnouhsein%40gmail.com/Mon%20Drive/coding/ml-components-demo/mlxp-wrapper/mlruns/150382600818973879/c006ef455af34478af0cf58e731bb8f7/artifacts/model
+user_id: null
+version: 1

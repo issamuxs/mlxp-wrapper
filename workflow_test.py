@@ -18,8 +18,10 @@ def main():
         public_ip = config['PUBLIC_IP']
         mlflow_port = config['MLFLOW_PORT']
     print(f"Connecting to instance {instance_id} with public IP {public_ip} with MLflow port {mlflow_port}")
-    mlflow.set_tracking_uri(f"http://{public_ip}:{mlflow_port}")
+    train_server = f"http://{public_ip}:{mlflow_port}"
+    mlflow.set_tracking_uri(train_server)
     print("MLflow tracking URI is ", mlflow.get_tracking_uri())
+
     parser = argparse.ArgumentParser(description="Train and log a logistic regression model in MLflow")
     parser.add_argument("-mlt", "--ml_type", type=str)
     parser.add_argument("-en", "--experiment_name", type=str)
