@@ -47,7 +47,7 @@ def main():
     client_config_path = args.client_config_path
     profile_name = args.profile_name
           
-    #setup_aws_config(client_config_path, profile_name) 
+    setup_aws_config(client_config_path, profile_name) 
     load_aws_config(client_config_path, profile_name)
 
     os.environ['AWS_PROFILE'] = profile_name # MLflow uses environment variables for credentials, not possible to force the use of boto3 session credentials

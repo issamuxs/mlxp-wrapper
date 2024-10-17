@@ -39,7 +39,11 @@ def setup_aws_config(client_config_path, profile_name):
 
     if profile_name not in credentials:
         credentials[profile_name] = {}
-
+    elif profile_name in credentials:
+        overwrite = input(f"Profile {profile_name} already exists. Overwrite credentials file? (y/n): ").lower().strip()
+        if overwrite != 'y':
+            print("Using existing profile with no update")
+        
     credentials[profile_name]['aws_access_key_id'] = access_key_id
     credentials[profile_name]['aws_secret_access_key'] = secret_access_key
 
@@ -54,6 +58,12 @@ def setup_aws_config(client_config_path, profile_name):
 
     if profile_section not in config:
         config[profile_section] = {}
+    if profile_section not in credentials:
+        credentials[profile_section] = {}
+    elif profile_section in credentials:
+        overwrite = input(f"Profile {profile_name} already exists. Overwrite config file? (y/n): ").lower().strip()
+        if overwrite != 'y':
+            print("Using existing profile with no update")
 
     config[profile_section]['Region'] = aws_region
     config[profile_section]['Output'] = aws_output 
