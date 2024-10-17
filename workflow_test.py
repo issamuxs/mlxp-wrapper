@@ -11,7 +11,7 @@ y = iris['target']
 
 def parse_args():
     parser = argparse.ArgumentParser(description="MLXP-Wrapper tool setup and testing")
-    parser.add_argument("-ccp", "--client_config_path", default='config/client_params.json', help='Path to client_config.json file')
+    parser.add_argument("-ccp", "--client_config_path", default='config/client_config.json', help='Path to client_config.json file')
     parser.add_argument("-pn", "--profile_name", default='mlxp-wrapper', help='AWS profile name (default: mlxp-wrapper)')
     parser.add_argument("-mlt", "--ml_type", type=str)
     parser.add_argument("-en", "--experiment_name", type=str)
