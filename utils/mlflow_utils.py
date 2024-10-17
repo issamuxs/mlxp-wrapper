@@ -1,5 +1,4 @@
 #import libraries
-import mlflow
 from mlflow.exceptions import MlflowException
 from mlflow.tracking import MlflowClient
 

@@ -5,6 +5,7 @@ import mlflow
 import joblib
 from utils.mlflow_utils import get_next_version
 
+
 class xp_wrapper:
     def __init__(self):
         #self.environment = {}
@@ -26,18 +27,20 @@ class xp_wrapper:
         self.model = joblib.load(model_path)
         self.model_info = {'model_type': type(self.model).__name__}
 
-    def train_model(self, X, y, ml_type, experiment_name, model_name, register):
-        
+    def train_model(self, X, y, ml_type, experiment_name, model_name, register_model):
+
         self.data = {'X': X, 'y': y}
 
         if ml_type == 'supervised':
+
             X = self.data['X']
             y = self.data['y']
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
-        
+
             mlflow.set_experiment(experiment_name)
 
             with mlflow.start_run() as run:
+
                 self.model_info['model_type'] = type(self.model).__name__
                 self.model_info['version'] = get_next_version(model_name)
                 self.model = LogisticRegression(max_iter=1000)
@@ -50,10 +53,12 @@ class xp_wrapper:
                 mlflow.sklearn.log_model(self.model, model_name)
                 mlflow.set_tag("model version", self.model_info['version'])
 
-            if register == 'true':
+
+            if register_model == 'true':
                 print(f"Registering model {model_name} under version {self.model_info['version']} for this run")
                 mlflow.register_model(f"runs:/{run.info.run_id}/model", model_name)
             else:
                 print("No model registered for this run")
+
         else:
             print("ml_type not supported.")
