@@ -61,7 +61,7 @@ def setup_aws_config(client_config_path, profile_name):
     if profile_section not in credentials:
         credentials[profile_section] = {}
     elif profile_section in credentials:
-        overwrite = input(f"Profile {profile_name} already exists. Overwrite config file? (y/n): ").lower().strip()
+        overwrite = input(f"Profile {profile_name} already exists. Overwrite config file? [y/n]: ").lower().strip()
         if overwrite != 'y':
             print("Using existing profile with no update")
 
