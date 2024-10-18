@@ -1,3 +1,4 @@
 # TODO
 
-TBD
+- Automate testing via CI/CD
+- Add web interface
